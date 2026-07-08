@@ -28,7 +28,7 @@ export default function ProfilePage() {
           <p className="text-white text-xs font-bold uppercase tracking-widest mb-2 opacity-70">Profile</p>
           <h1 className="text-white font-black text-6xl mb-2">Anay Apte</h1>
           <p className="text-[#A7A7A7] text-sm">
-            CS student at the University of Pennsylvania · Open to SWE, ML &amp; Quant internships
+            CS Student at the University of Pennsylvania · Class of 2028 · Open to SWE, ML, and Quant Internships
           </p>
         </div>
       </div>
@@ -39,16 +39,16 @@ export default function ProfilePage() {
           <h2 className="text-white font-bold text-xl mb-4">Contact</h2>
           <div className="flex flex-wrap gap-3">
             <a
-              href="mailto:anayaptecollege@gmail.com"
+              href="mailto:apte1@engineering.upenn.edu"
               className="flex items-center gap-2 bg-[#282828] hover:bg-[#3E3E3E] text-white text-sm px-4 py-2 rounded-full transition-colors"
             >
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
                 <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
-              anayaptecollege@gmail.com
+              apte1@engineering.upenn.edu
             </a>
             <a
-              href="https://github.com"
+              href="https://github.com/AnayApte"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-[#282828] hover:bg-[#3E3E3E] text-white text-sm px-4 py-2 rounded-full transition-colors"
@@ -59,7 +59,7 @@ export default function ProfilePage() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/anay-apte-a1a123258/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-[#282828] hover:bg-[#3E3E3E] text-white text-sm px-4 py-2 rounded-full transition-colors"
@@ -76,10 +76,11 @@ export default function ProfilePage() {
         <section>
           <h2 className="text-white font-bold text-xl mb-4">About</h2>
           <p className="text-[#A7A7A7] text-sm leading-relaxed max-w-2xl">
-            I&apos;m a CS student at the University of Pennsylvania with experience in software engineering,
-            data analysis, and machine learning. I&apos;ve shipped production software for enterprise clients,
-            analyzed large-scale research datasets at Argonne National Laboratory, and built mobile apps
-            from scratch. I&apos;m drawn to problems at the intersection of systems, data, and real-world impact.
+            I have hands-on experience in full-stack development, machine learning, and data analysis - currently exploring 
+            ML theory and architecture through coursework in language modeling from scratch. I&apos;ve designed backend architecture 
+            from scratch in an existing codebase, created AI agents from scratch using the ReAct framework, and served as project lead 
+            for software demoed to 100+ people. I&apos;m drawn to problems at the intersection of ML and finance, particularly applications 
+            in sports analytics. 
           </p>
         </section>
 
