@@ -3,6 +3,7 @@
 import { createContext, useContext, useState, ReactNode } from 'react'
 
 type StatusItem = {
+  id: string
   title: string
   subtitle: string
   accentColor: string
@@ -11,17 +12,22 @@ type StatusItem = {
 type StatusBarContextType = {
   currentItem: StatusItem
   setCurrentItem: (item: StatusItem) => void
+  minimized: boolean
+  setMinimized: (minimized: boolean) => void
 }
 
 const StatusBarContext = createContext<StatusBarContextType>({
   currentItem: null,
   setCurrentItem: () => {},
+  minimized: false,
+  setMinimized: () => {},
 })
 
 export function StatusBarProvider({ children }: { children: ReactNode }) {
   const [currentItem, setCurrentItem] = useState<StatusItem>(null)
+  const [minimized, setMinimized] = useState(false)
   return (
-    <StatusBarContext.Provider value={{ currentItem, setCurrentItem }}>
+    <StatusBarContext.Provider value={{ currentItem, setCurrentItem, minimized, setMinimized }}>
       {children}
     </StatusBarContext.Provider>
   )

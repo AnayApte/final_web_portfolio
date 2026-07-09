@@ -1,9 +1,11 @@
+import Image from "next/image";
+
 const topTech = [
   { label: 'Python', color: '#2D46B9' },
-  { label: 'React', color: '#E91429' },
-  { label: 'TypeScript', color: '#8D67AB' },
-  { label: 'Next.js', color: '#148A08' },
-  { label: 'Flutter', color: '#DC148C' },
+  { label: 'TypeScript', color: '#E91429' },
+  { label: 'Next.js', color: '#8D67AB' },
+  { label: 'SQL', color: '#148A08' },
+  { label: 'AWS', color: '#DC148C' },
 ]
 
 export default function ProfilePage() {
@@ -17,11 +19,16 @@ export default function ProfilePage() {
           minHeight: '260px',
         }}
       >
-        {/* Avatar placeholder */}
-        <div className="w-36 h-36 rounded-full flex-shrink-0 bg-[#535353] flex items-center justify-center shadow-2xl border-4 border-[#282828]">
-          <svg viewBox="0 0 24 24" fill="#A7A7A7" className="w-20 h-20">
-            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-          </svg>
+        {/* Avatar */}
+        <div className="w-36 h-36 rounded-full flex-shrink-0 shadow-2xl border-4 border-[#282828] overflow-hidden">
+          <Image
+            src="/profile_compressed.jpg"
+            alt="Anay Apte"
+            width ={144}
+            height={144}
+            className="w-full h-full object-cover"
+            priority 
+          />
         </div>
 
         <div>
@@ -87,7 +94,7 @@ export default function ProfilePage() {
         {/* Top Technologies */}
         <section>
           <h2 className="text-white font-bold text-xl mb-1">Top Technologies</h2>
-          <p className="text-[#A7A7A7] text-xs mb-5">Most used across projects and internships</p>
+          <p className="text-[#A7A7A7] text-xs mb-5">Most Used Across Projects and Internships</p>
           <div className="flex flex-wrap gap-6">
             {topTech.map((tech) => (
               <div key={tech.label} className="flex flex-col items-center gap-2">

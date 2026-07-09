@@ -6,15 +6,15 @@ export type SkillGroup = {
 export const skillGroups: SkillGroup[] = [
   {
     label: 'Languages',
-    skills: ['Python', 'TypeScript', 'JavaScript', 'Java', 'C', 'SQL', 'HTML/CSS'],
+    skills: ['Python', 'TypeScript', 'JavaScript', 'Java', 'C++', 'SQL', 'HTML/CSS'],
   },
   {
     label: 'Frameworks & Tools',
-    skills: ['React', 'React Native', 'Next.js', 'Flutter', 'Node.js', 'Git', 'Docker'],
+    skills: ['React', 'React Native', 'Next.js', 'Node.js', 'Git', 'Docker'],
   },
   {
     label: 'Databases',
-    skills: ['PostgreSQL', 'MongoDB', 'Firebase', 'SQLite'],
+    skills: ['PostgreSQL', 'DynamoDB'],
   },
   {
     label: 'Math & Statistics',

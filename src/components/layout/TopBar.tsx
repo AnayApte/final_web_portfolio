@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
 export default function TopBar() {
@@ -50,12 +51,15 @@ export default function TopBar() {
       {/* Profile avatar */}
       <Link
         href="/profile"
-        className="flex-shrink-0 w-8 h-8 bg-[#535353] hover:bg-[#727272] rounded-full flex items-center justify-center transition-colors overflow-hidden"
+        className="relative flex-shrink-0 w-8 h-8 bg-[#535353] hover:bg-[#727272] rounded-full flex items-center justify-center transition-colors overflow-hidden"
         aria-label="Profile"
       >
-        <svg viewBox="0 0 24 24" fill="#A7A7A7" className="w-5 h-5">
-          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-        </svg>
+        <Image
+          src="/profile_compressed.jpg"
+          alt="Anay Apte"
+          fill
+          className="object-cover"
+        />
       </Link>
     </header>
   )

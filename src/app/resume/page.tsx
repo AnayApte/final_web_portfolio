@@ -8,13 +8,15 @@ export default function ResumePage() {
       </div>
       <h1 className="text-white font-bold text-3xl mb-3">Resume</h1>
       <p className="text-[#A7A7A7] text-sm mb-6 max-w-sm">
-        PDF coming soon. In the meantime, reach out directly for a copy.
+        View or download my latest resume as a PDF.
       </p>
       <a
-        href="mailto:anayaptecollege@gmail.com"
+        href="/resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
         className="bg-white text-black font-bold text-sm px-6 py-3 rounded-full hover:scale-105 transition-transform"
       >
-        Email me for a copy
+        Open Resume PDF
       </a>
     </div>
   )

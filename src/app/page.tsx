@@ -2,8 +2,18 @@ import BrowseTile from '@/components/ui/BrowseTile'
 
 const tiles = [
   {
-    href: '/experience',
-    label: 'Experience',
+    href: '/projects',
+    label: 'Projects',
+    color: '#148A08',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="rgba(0,0,0,0.3)" className="w-20 h-20">
+        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+      </svg>
+    ),
+  },
+  {
+    href: '/internships',
+    label: 'Internships & Research',
     color: '#E91429',
     icon: (
       <svg viewBox="0 0 24 24" fill="rgba(0,0,0,0.3)" className="w-20 h-20">
@@ -22,8 +32,8 @@ const tiles = [
     ),
   },
   {
-    href: '/awards',
-    label: 'Awards',
+    href: '/clubs',
+    label: 'Clubs',
     color: '#DC148C',
     icon: (
       <svg viewBox="0 0 24 24" fill="rgba(0,0,0,0.3)" className="w-20 h-20">
@@ -32,9 +42,10 @@ const tiles = [
     ),
   },
   {
-    href: '/resume',
+    href: '/resume.pdf',
     label: 'Resume',
     color: '#8D67AB',
+    external: true,
     icon: (
       <svg viewBox="0 0 24 24" fill="rgba(0,0,0,0.3)" className="w-20 h-20">
         <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
@@ -55,6 +66,7 @@ export default function HomePage() {
             label={tile.label}
             color={tile.color}
             icon={tile.icon}
+            external={tile.external}
           />
         ))}
       </div>
