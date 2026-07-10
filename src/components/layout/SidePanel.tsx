@@ -1,19 +1,29 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import { useStatusBar } from '@/context/StatusBarContext'
 import { getExperienceById } from '@/data/experience'
-
-const SLIDE_COUNT = 3
 
 export default function SidePanel() {
   const { currentItem, minimized, setMinimized } = useStatusBar()
   const [slide, setSlide] = useState(0)
 
+  useEffect(() => {
+    setSlide(0)
+  }, [currentItem?.id])
+
   if (!currentItem) return null
 
   const entry = getExperienceById(currentItem.id)
   if (!entry) return null
+
+  // Falls back to a single placeholder slide until real photos are added per entry.
+  const slides = entry.slides && entry.slides.length > 0
+    ? entry.slides
+    : [{ caption: entry.description }]
+  const slideCount = slides.length
+  const activeSlide = slides[Math.min(slide, slideCount - 1)]
 
   if (minimized) {
     return (
@@ -46,49 +56,59 @@ export default function SidePanel() {
       </div>
 
       <div className="p-4">
-        {/* Carousel — placeholder art until real photos are added */}
         <div
           className="relative w-full aspect-square rounded-md overflow-hidden mb-4"
           style={{ backgroundColor: entry.accentColor }}
         >
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-white font-black text-3xl text-center px-4 leading-tight opacity-90">
-              {slide === 0 && entry.title.split(' ').map((w) => w[0]).join('').slice(0, 4)}
-              {slide === 1 && entry.employer.split(' ').map((w) => w[0]).join('').slice(0, 4)}
-              {slide === 2 && entry.dateRange}
-            </span>
-          </div>
-          <button
-            onClick={() => setSlide((s) => (s - 1 + SLIDE_COUNT) % SLIDE_COUNT)}
-            aria-label="Previous slide"
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 rounded-full p-1 transition-colors"
-          >
-            <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
-              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
-            </svg>
-          </button>
-          <button
-            onClick={() => setSlide((s) => (s + 1) % SLIDE_COUNT)}
-            aria-label="Next slide"
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 rounded-full p-1 transition-colors"
-          >
-            <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
-              <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
-            </svg>
-          </button>
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
-            {Array.from({ length: SLIDE_COUNT }).map((_, i) => (
-              <span
-                key={i}
-                className={`w-1.5 h-1.5 rounded-full ${i === slide ? 'bg-white' : 'bg-white/40'}`}
-              />
-            ))}
-          </div>
+          {activeSlide.image ? (
+            <Image
+              src={activeSlide.image}
+              alt={`${entry.title} — slide ${slide + 1}`}
+              fill
+              className="object-cover"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-white font-black text-3xl text-center px-4 leading-tight opacity-90">
+                {entry.title.split(' ').map((w) => w[0]).join('').slice(0, 4)}
+              </span>
+            </div>
+          )}
+          {slideCount > 1 && (
+            <>
+              <button
+                onClick={() => setSlide((s) => (s - 1 + slideCount) % slideCount)}
+                aria-label="Previous slide"
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 rounded-full p-1 transition-colors"
+              >
+                <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
+                  <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                </svg>
+              </button>
+              <button
+                onClick={() => setSlide((s) => (s + 1) % slideCount)}
+                aria-label="Next slide"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 rounded-full p-1 transition-colors"
+              >
+                <svg viewBox="0 0 24 24" fill="white" className="w-4 h-4">
+                  <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z" />
+                </svg>
+              </button>
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+                {slides.map((_, i) => (
+                  <span
+                    key={i}
+                    className={`w-1.5 h-1.5 rounded-full ${i === slide ? 'bg-white' : 'bg-white/40'}`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </div>
 
         <div className="text-white font-semibold text-sm mb-1">{entry.title}</div>
         <div className="text-[#A7A7A7] text-xs mb-3">{entry.employer}</div>
-        <p className="text-[#A7A7A7] text-sm leading-relaxed">{entry.description}</p>
+        <p className="text-[#A7A7A7] text-sm leading-relaxed">{activeSlide.caption}</p>
       </div>
     </aside>
   )

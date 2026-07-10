@@ -11,7 +11,7 @@ export default function InternshipsPage() {
       >
         <p className="text-white text-xs font-bold uppercase tracking-widest mb-2 opacity-70">Section</p>
         <h1 className="text-white font-black text-6xl mb-4">Internships & Research</h1>
-        <p className="text-[#A7A7A7] text-sm">Professional and research experience</p>
+        <p className="text-[#A7A7A7] text-sm">Professional and Research Experience</p>
       </div>
 
       {/* Card grid */}
@@ -25,6 +25,7 @@ export default function InternshipsPage() {
               subtitle={entry.employer}
               accentColor={entry.accentColor}
               label={entry.employer.split('—')[0].trim().split(' ').slice(0, 2).join(' ')}
+              inProgress={entry.inProgress}
             />
           ))}
         </div>

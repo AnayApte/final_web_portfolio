@@ -11,7 +11,7 @@ export default function ProjectsPage() {
       >
         <p className="text-white text-xs font-bold uppercase tracking-widest mb-2 opacity-70">Section</p>
         <h1 className="text-white font-black text-6xl mb-4">Projects</h1>
-        <p className="text-[#A7A7A7] text-sm">Personal projects, built from scratch</p>
+        <p className="text-[#A7A7A7] text-sm">Personal Projects, Built From Scratch</p>
       </div>
 
       {/* Card grid */}

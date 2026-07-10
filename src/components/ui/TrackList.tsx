@@ -23,10 +23,17 @@ export default function TrackList({ bullets }: Props) {
         >
           <span className="text-[#A7A7A7] text-sm pt-0.5">{i + 1}</span>
           <span className="text-white text-sm leading-snug">{bullet.text}</span>
-          {bullet.tag ? (
-            <span className="text-[#A7A7A7] text-xs bg-[#282828] group-hover:bg-[#3E3E3E] rounded-full px-2 py-1 self-start w-fit">
-              {bullet.tag}
-            </span>
+          {bullet.tags && bullet.tags.length > 0 ? (
+            <div className="flex flex-wrap gap-1 self-start">
+              {bullet.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[#A7A7A7] text-xs bg-[#282828] group-hover:bg-[#3E3E3E] rounded-full px-2 py-1 w-fit"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           ) : (
             <span />
           )}
