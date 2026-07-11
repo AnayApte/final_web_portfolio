@@ -5,6 +5,7 @@ import { useEffect } from 'react'
 import { getExperienceById } from '@/data/experience'
 import { useStatusBar } from '@/context/StatusBarContext'
 import TrackList from '@/components/ui/TrackList'
+import Linkify from '@/components/ui/Linkify'
 import Link from 'next/link'
 import { use } from 'react'
 
@@ -75,7 +76,7 @@ export default function DetailPage({ params }: { params: Promise<{ id: string }>
             <span className="text-[#A7A7A7]">•</span>
             <span className="text-[#A7A7A7]">{entry.bullets.length} details</span>
           </div>
-          <p className="text-[#A7A7A7] text-sm mt-2">{entry.description}</p>
+          <p className="text-[#A7A7A7] text-sm mt-2"><Linkify text={entry.description} /></p>
           {entry.credentials && entry.credentials.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-3">
               {entry.credentials.map((credential) => (

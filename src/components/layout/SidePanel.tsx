@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { useStatusBar } from '@/context/StatusBarContext'
 import { getExperienceById } from '@/data/experience'
+import Linkify from '@/components/ui/Linkify'
 
 export default function SidePanel() {
   const { currentItem, minimized, setMinimized } = useStatusBar()
@@ -108,7 +109,7 @@ export default function SidePanel() {
 
         <div className="text-white font-semibold text-sm mb-1">{entry.title}</div>
         <div className="text-[#A7A7A7] text-xs mb-3">{entry.employer}</div>
-        <p className="text-[#A7A7A7] text-sm leading-relaxed">{activeSlide.caption}</p>
+        <p className="text-[#A7A7A7] text-sm leading-relaxed"><Linkify text={activeSlide.caption} /></p>
       </div>
     </aside>
   )
