@@ -9,6 +9,11 @@ export type CarouselSlide = {
   caption: string
 }
 
+export type EntryLink = {
+  label: string
+  url: string
+}
+
 export type ExperienceEntry = {
   id: string
   category: 'internship' | 'project' | 'club'
@@ -22,6 +27,7 @@ export type ExperienceEntry = {
   inProgress?: boolean
   credentials?: string[]
   slides?: CarouselSlide[]
+  links?: EntryLink[]
 }
 
 export const experience: ExperienceEntry[] = [
@@ -88,14 +94,21 @@ export const experience: ExperienceEntry[] = [
     title: 'Options Pricing Engine',
     employer: 'Personal Project',
     dateRange: '2026–Present',
-    description: 'Currently studying the Black-Scholes model and its derivation before writing any code. Building the engine in C++ since it\'s the industry standard for performance-critical pricing systems, and a language I wanted real quant/fintech experience in. Implementing visualization in Python since it\'s a natural fit for plotting payfoff diagrams, vol surfaces, and Greeks.',
+    description: 'Built the Black-Scholes pricing model in C++ (the standard normal CDF and the call/put pricing functions) and currently learning geometric Brownian motion to extend into Monte Carlo simulation next. Built in C++, the industry standard for performance-critical pricing systems and a language I wanted real quant/fintech experience in, with Python handling visualization for payoff diagrams, vol surfaces, and Greeks.',
     slides: [
-      { caption: 'PLACEHOLDER'},
+      { caption: 'Every input to Black-Scholes except volatility is directly observable: stock price, strike, rate, and time can all just be looked up. Volatility is the one variable you have to estimate, which is where the real quantitative judgment in options pricing lives.'},
+      { caption: 'Learned the C++ build chain end to end: CMakeLists.txt defines the build, CMake generates a Makefile from it, and make compiles that into the final binary, the full path from source code to a runnable executable.'}
     ],
-    bullets: [],
+    bullets: [
+      { text: 'Implemented the standard normal CDF in C++. This is the building block behind Black-Scholes\' N(d1) and N(d2) terms, which represent the probability-weighted expected values the formula is built from.', tags: ['C++'], date: '2026'},
+      { text: 'Implemented the Black-Scholes call and put pricing functions in C++, where a call profits when the stock price exceeds the strike at expiration and a put profits when it falls below.', tags: ['C++'], date: '2026'}
+    ],
     accentColor: '#0D9488',
     highlight: false,
     inProgress: true,
+    links: [
+      { label: 'GitHub', url: 'https://github.com/AnayApte/options-pricing-engine' },
+    ],
   },
   {
     id: 'nba-analytics-model',
@@ -111,6 +124,33 @@ export const experience: ExperienceEntry[] = [
     accentColor: '#EA580C',
     highlight: false,
     inProgress: true,
+  },
+  {
+    id: 'scout',
+    category: 'project',
+    title: 'Scout',
+    employer: 'Personal Project',
+    dateRange: '2026',
+    description: 'Scout is a full-stack system that sources, screens, and issues real $100K investment decisions on startup founders within 24 hours, whether they applied directly or were surfaced from public activity on GitHub, Hacker News, or arXiv. Every founder gets a persistent Founder Score, reported as a value with a confidence interval that survives across applications and sharpens with new milestones rather than resetting on rejection. Built end-to-end in a single hackathon by a team of four, with live OpenAI reasoning, live web-evidence checks, and live outbound scanning.',
+    slides: [
+      { caption: 'Maschmeyer Group\'s spec required keeping Founder, Market, and Idea-vs-Market as three separate axes rather than one blended score. The goal was maximizing how detailed the resulting investment memo could be, since collapsing them into a single number would lose the reasoning behind it.'},
+      { caption: 'I chose to implement a shared contract because of a bad experience at a previous hackathon. On SmartSketch, we were still fixing integration bugs at 4am for an 8am deadline, and the demo suffered for it. This time, investing early in a detailed shared contract file meant less time spent integrating everyone\'s modules together, and we finished with real time to spare before the deadline.'},
+      { caption: 'We weighed time, data, and cost on every build decision. EMA-style score recomputation avoided the overhead of full model retraining. That same instinct showed up elsewhere too: in outbound search, OpenAI is only called to judge whether ambiguous context actually relates to a founder, rather than running every signal through the LLM by default.'},
+      { caption: 'We deliberately avoided bolting on differentiating features late in the build. Instead of adding more surface area, we spent that time calibrating the scoring formula itself since simplicity over breadth was the guiding principle.'}
+
+    ],
+    bullets: [
+      { text: 'Designed the initial system architecture, including a locked shared contract file defining data shapes across the team\'s four independently-built modules, enabling parallel development without integration drift under hackathon time constraints.', tags: ['System Design'], date: '2026' },
+      { text: 'Built the Signal Intake module. This is a deck parser converting founder submissions (PDF/PPTX/DOCX/TXT/MD) into structured claims, and an outbound scanner surfacing founders from GitHub, Hacker News, and arXiv before they applied.', tags: ['Python', 'FastAPI'], date: '2026' },
+      { text: 'Built the funnel convergence logic connecting outbound-sourced founders (via automated emails) into the same scoring pipeline as inbound applicants.', tags: ['FastAPI'], date: '2026' },
+      { text: 'Integrated Product Hunt as an additional outbound sourcing signal.', tags: ['Python'], date: '2026' },
+    ],
+    accentColor: '#06C7B5',
+    highlight: false,
+    links: [
+      { label: 'Website', url: 'https://frontend-ruddy-rho-29.vercel.app/' },
+      { label: 'GitHub', url: 'https://github.com/aryanpradhan1/VCBrain' },
+    ],
   },
   {
     id: 'penn-academic-copilot',
@@ -152,7 +192,7 @@ export const experience: ExperienceEntry[] = [
     title: 'One Percent Better',
     employer: 'Personal Project',
     dateRange: '2024',
-    description: 'Led a team of four to build a React Native health and wellness app for the Congressional App Challenge, combining workout tracking, nutrition planning, meditation, and journaling for high schoolers and young adults. Watch our demo video to learn more: https://www.youtube.com/watch?v=lVU-Msay_a8',
+    description: 'Led a team of four to build a React Native health and wellness app for the Congressional App Challenge, combining workout tracking, nutrition planning, meditation, and journaling for high schoolers and young adults.',
     slides: [
       { caption: 'PLACEHOLDER'},
     ],
@@ -165,6 +205,9 @@ export const experience: ExperienceEntry[] = [
     ],
     accentColor: '#148A08',
     highlight: true,
+    links: [
+      { label: 'Demo', url: 'https://www.youtube.com/watch?v=lVU-Msay_a8' },
+    ],
   },
   {
     id: 'nchs-nav',

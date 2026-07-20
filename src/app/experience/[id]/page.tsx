@@ -77,6 +77,21 @@ export default function DetailPage({ params }: { params: Promise<{ id: string }>
             <span className="text-[#A7A7A7]">{entry.bullets.length} details</span>
           </div>
           <p className="text-[#A7A7A7] text-sm mt-2"><Linkify text={entry.description} /></p>
+          {entry.links && entry.links.length > 0 && (
+            <div className="flex flex-wrap gap-2 mt-3">
+              {entry.links.map((link) => (
+                <a
+                  key={link.url}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white text-sm border border-[#727272] rounded-full px-4 py-1.5 hover:border-white hover:scale-105 transition-all"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          )}
           {entry.credentials && entry.credentials.length > 0 && (
             <div className="flex flex-wrap gap-2 mt-3">
               {entry.credentials.map((credential) => (
