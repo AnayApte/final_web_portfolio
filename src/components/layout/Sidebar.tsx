@@ -28,17 +28,6 @@ const navItems = [
     category: 'internship',
   },
   {
-    href: '/skills',
-    label: 'Skills',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
-        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
-      </svg>
-    ),
-    color: '#2D46B9',
-    category: null,
-  },
-  {
     href: '/clubs',
     label: 'Clubs',
     icon: (
@@ -48,6 +37,17 @@ const navItems = [
     ),
     color: '#DC148C',
     category: 'club',
+  },
+  {
+    href: '/skills',
+    label: 'Skills',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+      </svg>
+    ),
+    color: '#2D46B9',
+    category: null,
   },
   {
     href: '/resume',
@@ -136,7 +136,7 @@ export default function Sidebar() {
 
           if (isResume) {
             return (
-              <a key={item.href} href="/resume.pdf" target="_blank" rel="noopener noreferrer" className={className}>
+              <a key={item.href} href="/updated_resume.pdf" target="_blank" rel="noopener noreferrer" className={className}>
                 {linkContent}
               </a>
             )

@@ -22,16 +22,6 @@ const tiles = [
     ),
   },
   {
-    href: '/skills',
-    label: 'Skills',
-    color: '#2D46B9',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="rgba(0,0,0,0.3)" className="w-20 h-20">
-        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
-      </svg>
-    ),
-  },
-  {
     href: '/clubs',
     label: 'Clubs',
     color: '#DC148C',
@@ -42,7 +32,17 @@ const tiles = [
     ),
   },
   {
-    href: '/resume.pdf',
+    href: '/skills',
+    label: 'Skills',
+    color: '#2D46B9',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="rgba(0,0,0,0.3)" className="w-20 h-20">
+        <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+      </svg>
+    ),
+  },
+  {
+    href: '/updated_resume.pdf',
     label: 'Resume',
     color: '#8D67AB',
     external: true,

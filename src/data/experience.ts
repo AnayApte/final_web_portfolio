@@ -49,7 +49,7 @@ export const experience: ExperienceEntry[] = [
       { text: 'Chose single-table design over per-entity tables for cost efficiency and near-infinite horizontal scalability, positioning the schema to support Hatching Sparrow’s scale-up to hundreds of users post-launch without added operational overhead', tags: ['AWS'], date: '2026' }
     ],
     accentColor: '#1DB954',
-    highlight: false,
+    highlight: true,
     inProgress: true,
   },
   {
@@ -59,9 +59,6 @@ export const experience: ExperienceEntry[] = [
     employer: 'Eigenvector LLC',
     dateRange: '2024–2025',
     description: 'Building and maintaining RudderVirt, a web platform providing on-demand virtual machines for classroom assignments and technical competitions.',
-    slides: [
-      { caption: 'PLACEHOLDER'},
-    ],
     bullets: [
       { text: 'Built a full-stack auth system for RudderVirt supporting dual teacher/student account roles, using SvelteKit, Drizzle ORM, and PostgreSQL (chosen over NoSQL for relational data needs like joining teacher-to-student assignments) with sign-ins verified through a backend API call to Cloudflare Turnstile.', tags: ['SvelteKit', 'PostgreSQL'], date: '2024' },
       { text: 'Built a real-time, AWS-backed VM deployment system letting teachers assign virtual machines to students, who could launch them within a 60-minute session limit. Used as the live timed testing environment for competitors at SkillsUSA 2024 Nationals.', tags: ['AWS'], date: '2024' },
@@ -70,23 +67,49 @@ export const experience: ExperienceEntry[] = [
       { text: 'Wrote automated Playwright tests from scratch for each feature I built, verifying that user flows executed correctly end to end.', tags: ['Playwright'], date: '2024' },
     ],
     accentColor: '#E91429',
-    highlight: true,
+    highlight: false,
   },
   {
     id: 'argonne',
     category: 'internship',
-    title: 'Data Analysis Researcher',
-    employer: 'Argonne National Laboratory — ESRP',
+    title: 'Exemplary Student Research Program',
+    employer: 'Argonne National Laboratory',
     dateRange: '2023–2025',
-    description: 'Analyzed large-scale experimental datasets for a U.S. Department of Energy research program.',
+    description: 'Researched cadmium selenide (CdSe) quantum dots\' environmental impact on crops through Argonne National Laboratory\'s Exemplary Student Research Program, working alongside Dr. Olga Antipova and a 12-person research team.',
     bullets: [
-      { text: 'Processed 10 GB+ of X-ray spectroscopy data to surface material composition patterns invisible to manual review', tags: ['Python'], date: '2023' },
-      { text: 'Built a visualization pipeline that compressed multi-day analysis cycles down to hours', tags: ['Matplotlib'], date: '2024' },
-      { text: 'Co-authored internal findings report presented to Argonne senior scientists', tags: ['Research'], date: '2025' },
+      { text: 'Analyzed experimental data on plant morphology and chloroplast quantity to quantify the effects of CdSe quantum dot exposure.', tags: ['Research'], date: '2023' },
+      { text: 'Co-authored a research poster presenting the team\'s findings.', tags: ['Research'], date: '2024' },
     ],
     accentColor: '#2D46B9',
+    highlight: false,
+    links: [
+      { label: 'Poster', url:'https://www.anl.gov/education/naperville-central-high-school-esrp-2024'}
+    ]
+  },
+  {
+    id: 'cs336-language-modeling',
+    category: 'project',
+    title: 'Language Modeling from Scratch',
+    employer: 'Personal Project',
+    dateRange: '2026-Present',
+    description: 'Working through Stanford\'s CS336 (Language Modeling from Scratch) using their publicly available course materials. Every component (tokenizer through Transformer) is implemented from raw PyTorch tensors, without using torch.nn\'s built-in layers or torch.optim (only base classes like nn.Module are permitted). Currently finishing Assignment 1: the tokenizer and core Transformer building blocks are complete, with the full language model (Chapter 4) next.',
+    slides: [
+      { caption: 'The assignment bars using any of PyTorch\'s built-in neural network layers or optimizers, only base container classes like nn.Module are allowed. Every linear layer, normalization, attention mechanism, and feedforward block here is implemented from raw tensor operations, not assembled from existing building blocks.'},
+    ],
+    bullets: [
+      { text: 'Implemented a byte pair encoding (BPE) tokenizer from scratch, including a multiprocessing-parallelized pretokenization step across CPU cores to handle large training corpora.', tags: ['Python', 'multiprocessing'], date: '2026' },
+      { text: 'Implemented the Tokenizer class handling encoding and decoding, including special-token handling for multi-byte characters.', tags: ['Python'], date: '2026' },
+      { text: 'Implemented a bias-free Linear layer and an Embedding layer from scratch, without PyTorch\'s built-in nn.Linear or nn.Embedding.', tags: ['PyTorch'], date: '2026' },
+      { text: 'Implemented RMSNorm and a SwiGLU-style feedforward network from scratch.', tags: ['PyTorch'], date: '2026' },
+      { text: 'Implemented Rotary Position Embeddings (RoPE) and causal scaled dot-product attention from scratch.', tags: ['PyTorch'], date: '2026' },
+      { text: 'Assembled these into a full pre-norm TransformerBlock (RMSNorm to attention to residual, RMSNorm to FFN to residual).', tags: ['PyTorch'], date: '2026' },
+    ],
+    accentColor: '#E8115B',
     highlight: true,
-    credentials: ['Excellence in Research Award — Argonne National Laboratory, 2024'],
+    inProgress: true,
+    links: [
+      { label: 'GitHub', url: 'https://github.com/AnayApte/Stanford336AssignmentOne' },
+    ],
   },
   {
     id: 'options-pricing-engine',
@@ -124,6 +147,9 @@ export const experience: ExperienceEntry[] = [
     accentColor: '#EA580C',
     highlight: false,
     inProgress: true,
+    links: [
+      { label: 'GitHub', url: 'https://github.com/AnayApte/nba-impact-model' },
+    ],
   },
   {
     id: 'scout',
@@ -146,7 +172,7 @@ export const experience: ExperienceEntry[] = [
       { text: 'Integrated Product Hunt as an additional outbound sourcing signal.', tags: ['Python'], date: '2026' },
     ],
     accentColor: '#06C7B5',
-    highlight: false,
+    highlight: true,
     links: [
       { label: 'Website', url: 'https://frontend-ruddy-rho-29.vercel.app/' },
       { label: 'GitHub', url: 'https://github.com/aryanpradhan1/VCBrain' },
@@ -158,13 +184,23 @@ export const experience: ExperienceEntry[] = [
     title: 'Penn Academic Co-Pilot',
     employer: 'Personal Project',
     dateRange: '2026',
-    description: 'GPT-4 powered academic advising agent that safely routes live student scheduling queries against real Penn course data.',
+    description: 'GPT-4o powered academic advising agent helping Penn students plan schedules, check course eligibility, and track degree progress across 18 tools.',
+    slides: [
+      { caption: 'The 18 tools split into 8 functional areas: live course search and reviews via the Penn Course Review API, official catalog/prerequisite scraping, degree progress tracking against SEAS requirements, transcript parsing (including PDF uploads and Penn\'s 2022 course renumbering), and preference extraction from free text.'},
+      { caption: 'Here\'s a concrete walkthrough of scheduling: A concrete example: if a student already has CIS-1200 and asks to add CIS-3200, the system checks every valid section combination for a conflict-free fit. If none exists, it doesn\'t guess, it asks the student to replace the conflicting course, keep both, or cancel, before taking any action.'}
+
+    ],
     bullets: [
-      { text: 'Engineered an OpenAI GPT-4 agent with 6 custom tools, routing live student queries against real Penn course data, correctly blocking ineligible enrollments and resolving multi-constraint scheduling', tags: ['OpenAI API'], date: '2025' },
-      { text: 'Designed a 7-stage guardrail system mitigating 10+ threat vectors including prompt injection, hallucinated course recommendations, and state corruption, validated across 3 end-to-end test cases with unit-tested components', tags: ['FastAPI'], date: '2025' },
+      { text: 'Built an agent with 18 GPT-4o tools across 8 modules (live course search, catalog eligibility checks, degree progress tracking, and transcript parsing).', tags: ['GPT-4o', 'FastAPI'], date: '2026' },
+      { text: 'Built a schedule-conflict resolution system using a backtracking solver checking every lecture/recitation/lab combination simultaneously.', tags: ['Python'], date: '2026' },
+      { text: 'Built an input/output guardrail layer blocking prompt-injection and persona-hijack attempts via pattern matching.', tags: ['Python'], date: '2026' },
+      { text: 'Validated the system with 3 end-to-end evaluation cases against a live GPT-4o pipeline, backed by 186 unit tests across the tool suite.', tags: ['pytest'], date: '2026' },
     ],
     accentColor: '#6366F1',
     highlight: false,
+    links: [
+      { label: 'GitHub', url: 'https://github.com/AnayApte/CIS1990Final' },
+    ],
   },
   {
     id: 'smart-sketch',
@@ -185,6 +221,9 @@ export const experience: ExperienceEntry[] = [
     ],
     accentColor: '#1E3264',
     highlight: false,
+    links: [
+      { label: 'GitHub', url: 'https://github.com/AnayApte/smart-sketch' },
+    ],
   },
   {
     id: 'one-percent-better',
@@ -193,9 +232,6 @@ export const experience: ExperienceEntry[] = [
     employer: 'Personal Project',
     dateRange: '2024',
     description: 'Led a team of four to build a React Native health and wellness app for the Congressional App Challenge, combining workout tracking, nutrition planning, meditation, and journaling for high schoolers and young adults.',
-    slides: [
-      { caption: 'PLACEHOLDER'},
-    ],
     bullets: [
       { text: 'Built authentication with Supabase Auth, linking auth records to app-specific user tables via foreign keys so profile, workout, and nutrition data stayed in sync across every feature.', tags: ['Supabase'], date: '2024' },
       { text: 'Built a workout tracker integrating the ExerciseDB API for a searchable exercise library, logging sets/reps/weight per session, and using foreign-key-linked workout history to calculate one-rep max via the Epley formula.', tags: ['ExerciseDB'], date: '2024' },
@@ -204,36 +240,22 @@ export const experience: ExperienceEntry[] = [
       { text: 'Added supporting features including guided meditation sessions, a daily rotating quote, a task log, a personal journal, and a calendar integrating all of the app\'s features into one view.', tags: ['React Native'], date: '2024' },
     ],
     accentColor: '#148A08',
-    highlight: true,
+    highlight: false,
     links: [
       { label: 'Demo', url: 'https://www.youtube.com/watch?v=lVU-Msay_a8' },
+      { label: 'GitHub', url: 'https://github.com/AnayApte/OPB' },
     ],
-  },
-  {
-    id: 'nchs-nav',
-    category: 'project',
-    title: 'NCHS Nav',
-    employer: 'Personal Project',
-    dateRange: '2022–2023',
-    description: 'Indoor navigation app for a 400-student high school campus.',
-    bullets: [
-      { text: 'Modeled the entire school floor plan as a graph; ran Dijkstra\'s to compute shortest paths between any two rooms', tags: ['Algorithms'], date: '2022' },
-      { text: 'Built a mobile UI that routed students to any room in under 30 seconds', tags: ['Flutter'], date: '2023' },
-      { text: 'Deployed to 50+ students in beta; administration requested an expanded rollout', tags: ['Deployment'], date: '2023' },
-    ],
-    accentColor: '#E8115B',
-    highlight: false,
   },
   {
     id: 'penn-spark',
     category: 'club',
     title: 'Project Lead',
     employer: 'Penn Spark',
-    dateRange: 'Jan 2026–Present',
-    description: 'Led a cross-functional team building SmartSketch, a real-time AI mindmapping tool, from concept to a 100+ person Demo Day.',
+    dateRange: '2026-Present',
+    description: 'Led a cross-functional team building SmartSketch, a real-time AI mindmapping tool for students with ADHD, from concept to a 100+ person Demo Day.',
     bullets: [
-      { text: 'Led a cross-functional team of 4 developers and 3 designers building SmartSketch, presenting the final product at Penn Spark Demo Day to an audience of 100+ attendees', tags: ['Leadership'], date: '2026' },
-      { text: 'Coordinated weekly sprints and team meetings, maintaining alignment across engineering and design while reporting progress in weekly cross-team PL syncs', tags: ['Project Management'], date: '2026' },
+      { text: 'Led a cross-functional team of 4 developers and 3 designers building SmartSketch, presenting the final product at Penn Spark Demo Day to an audience of 100+ attendees.', date: '2026' },
+      { text: 'Coordinated weekly sprints and team meetings, maintaining alignment across engineering and design while reporting progress in weekly cross-team PL syncs.', date: '2026' },
     ],
     accentColor: '#F59E0B',
     highlight: false,
@@ -243,54 +265,26 @@ export const experience: ExperienceEntry[] = [
     category: 'club',
     title: 'Director of Marketing & Singer',
     employer: "Penn Masala (World's First South Asian A Cappella Group)",
-    dateRange: 'Sep 2025–Present',
+    dateRange: '2025–Present',
     description: "Marketing lead and performer for the world's first South Asian a cappella group.",
     bullets: [
-      { text: "Member of the world's first South Asian a cappella group with 400K+ followers and content exceeding 10M+ views, with group credits including performances at the White House and the 2024 Paris Olympics", tags: ['Marketing'], date: '2025' },
+      { text: "Member of the world's first South Asian a cappella group with 400K+ followers and content exceeding 10M+ views, with group credits including performances at the White House and the 2024 Paris Olympics.", date: '2025' },
     ],
     accentColor: '#0EA5E9',
-    highlight: false,
+    highlight: true,
   },
   {
     id: 'codebytes',
     category: 'club',
     title: 'Co-Founder & Director',
     employer: 'CodeBytes Youth CS Camp',
-    dateRange: '2021–2023',
-    description: 'Founded and ran a free summer coding camp for middle schoolers.',
+    dateRange: '2024',
+    description: 'Founded a Python programming camp at my former middle school in senior year of high school, after students had requested a CS class for 6 years with no response from administration. Designed the curriculum from scratch and built something that outlasted my own involvement by 2+ years.',
     bullets: [
-      { text: 'Launched from zero — recruited 6 instructors and enrolled 40+ students in the first summer', tags: ['Leadership'], date: '2021' },
-      { text: 'Designed the full curriculum covering Python, web fundamentals, and computational thinking', tags: ['Curriculum'], date: '2022' },
+      { text: 'Recruited and managed 20+ volunteer high school instructors, the binding constraint being volunteers willing to take early dismissals, while running 5 sessions drawing 50-100 students each.', date: '2024' },
+      { text: 'Students demoed original Python projects at a culminating showcase for parents; the program has continued running for 2+ years after my involvement ended.', date: '2024' },
     ],
     accentColor: '#8D67AB',
-    highlight: false,
-  },
-  {
-    id: 'merry-tutor',
-    category: 'club',
-    title: 'Data Manager',
-    employer: 'The Merry Tutor',
-    dateRange: '2022–2023',
-    description: 'Managed student and tutor records for a nonprofit tutoring organization.',
-    bullets: [
-      { text: 'Automated monthly reporting with Python scripts, saving ~4 hours of manual work per month', tags: ['Python'], date: '2022' },
-      { text: 'Maintained accurate records for 300+ students across two semesters', tags: ['Data'], date: '2023' },
-    ],
-    accentColor: '#2D46B9',
-    highlight: false,
-  },
-  {
-    id: 'power-up',
-    category: 'club',
-    title: 'Volunteer',
-    employer: 'Power Up Project',
-    dateRange: '2021–2022',
-    description: 'Provided tech support and digital literacy training to underserved communities.',
-    bullets: [
-      { text: 'Taught basic computer skills to 20+ seniors across 8 weekly sessions', tags: ['Teaching'], date: '2021' },
-      { text: 'Helped refurbish and redistribute 15 laptops to low-income families', tags: ['Community'], date: '2022' },
-    ],
-    accentColor: '#E91429',
     highlight: false,
   },
 ]

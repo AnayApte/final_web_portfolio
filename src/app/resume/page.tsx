@@ -11,7 +11,7 @@ export default function ResumePage() {
         View or download my latest resume as a PDF.
       </p>
       <a
-        href="/resume.pdf"
+        href="/updated_resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
         className="bg-white text-black font-bold text-sm px-6 py-3 rounded-full hover:scale-105 transition-transform"
