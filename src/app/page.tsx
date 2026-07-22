@@ -56,9 +56,9 @@ const tiles = [
 
 export default function HomePage() {
   return (
-    <div className="px-8 py-8">
+    <div className="px-4 sm:px-6 lg:px-8 py-8">
       <h1 className="text-white font-bold text-3xl mb-6">Browse all</h1>
-      <div className="grid grid-cols-2 gap-4 max-w-2xl">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 max-w-2xl">
         {tiles.map((tile) => (
           <BrowseTile
             key={tile.href}

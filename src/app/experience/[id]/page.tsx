@@ -43,7 +43,7 @@ export default function DetailPage({ params }: { params: Promise<{ id: string }>
     <div>
       {/* Hero */}
       <div
-        className="px-8 pt-16 pb-8 flex items-end gap-6"
+        className="px-4 sm:px-6 lg:px-8 pt-16 pb-8 flex flex-col sm:flex-row sm:items-end gap-4 sm:gap-6"
         style={{
           background: `linear-gradient(to bottom, ${entry.accentColor}88 0%, #121212 100%)`,
           minHeight: '280px',
@@ -51,16 +51,16 @@ export default function DetailPage({ params }: { params: Promise<{ id: string }>
       >
         {/* "Album art" */}
         <div
-          className="w-44 h-44 flex-shrink-0 rounded shadow-2xl flex items-center justify-center"
+          className="w-24 h-24 sm:w-36 sm:h-36 lg:w-44 lg:h-44 flex-shrink-0 rounded shadow-2xl flex items-center justify-center"
           style={{ backgroundColor: entry.accentColor }}
         >
-          <span className="text-white font-black text-3xl text-center px-4 leading-tight">
+          <span className="text-white font-black text-2xl sm:text-3xl text-center px-4 leading-tight">
             {entry.title.split(' ').map((w) => w[0]).join('').slice(0, 4)}
           </span>
         </div>
 
         <div className="min-w-0">
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex items-center gap-3 mb-2 flex-wrap">
             <p className="text-white text-xs font-bold uppercase tracking-widest opacity-70">{categoryLabel}</p>
             {entry.inProgress && (
               <span className="bg-black/40 text-white text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full">
@@ -68,8 +68,8 @@ export default function DetailPage({ params }: { params: Promise<{ id: string }>
               </span>
             )}
           </div>
-          <h1 className="text-white font-black text-5xl leading-tight mb-3">{entry.title}</h1>
-          <div className="flex items-center gap-2 text-sm">
+          <h1 className="text-white font-black text-3xl sm:text-4xl lg:text-5xl leading-tight mb-3 break-words">{entry.title}</h1>
+          <div className="flex items-center gap-2 text-sm flex-wrap">
             <span className="text-white font-semibold">{entry.employer}</span>
             <span className="text-[#A7A7A7]">•</span>
             <span className="text-[#A7A7A7]">{entry.dateRange}</span>
@@ -108,7 +108,7 @@ export default function DetailPage({ params }: { params: Promise<{ id: string }>
       </div>
 
       {/* Back link + track list */}
-      <div className="px-8 pb-12">
+      <div className="px-4 sm:px-6 lg:px-8 pb-12">
         <div className="mb-4">
           <Link
             href={backLink.href}

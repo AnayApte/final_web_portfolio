@@ -13,34 +13,34 @@ export default function ProfilePage() {
     <div>
       {/* Profile hero */}
       <div
-        className="px-8 pt-16 pb-8 flex items-end gap-6"
+        className="px-4 sm:px-6 lg:px-8 pt-16 pb-8 flex flex-col sm:flex-row sm:items-end gap-4 sm:gap-6"
         style={{
           background: 'linear-gradient(to bottom, #1a237e 0%, #121212 100%)',
           minHeight: '260px',
         }}
       >
         {/* Avatar */}
-        <div className="w-36 h-36 rounded-full flex-shrink-0 shadow-2xl border-4 border-[#282828] overflow-hidden">
+        <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-36 lg:h-36 rounded-full flex-shrink-0 shadow-2xl border-4 border-[#282828] overflow-hidden">
           <Image
             src="/profile_compressed.jpg"
             alt="Anay Apte"
             width ={144}
             height={144}
             className="w-full h-full object-cover"
-            priority 
+            priority
           />
         </div>
 
-        <div>
+        <div className="min-w-0">
           <p className="text-white text-xs font-bold uppercase tracking-widest mb-2 opacity-70">Profile</p>
-          <h1 className="text-white font-black text-6xl mb-2">Anay Apte</h1>
+          <h1 className="text-white font-black text-4xl sm:text-5xl lg:text-6xl mb-2 break-words">Anay Apte</h1>
           <p className="text-[#A7A7A7] text-sm">
             CS Student at the University of Pennsylvania · Class of 2028 · Open to SWE, ML, and Quant Internships
           </p>
         </div>
       </div>
 
-      <div className="px-8 py-6 pb-12 space-y-10">
+      <div className="px-4 sm:px-6 lg:px-8 py-6 pb-12 space-y-10">
         {/* Contact */}
         <section>
           <h2 className="text-white font-bold text-xl mb-4">Contact</h2>

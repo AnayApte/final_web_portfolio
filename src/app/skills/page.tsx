@@ -6,15 +6,15 @@ export default function SkillsPage() {
     <div>
       {/* Hero */}
       <div
-        className="px-8 pt-16 pb-8"
+        className="px-4 sm:px-6 lg:px-8 pt-16 pb-8"
         style={{ background: 'linear-gradient(to bottom, #0d1f6e 0%, #121212 100%)' }}
       >
         <p className="text-white text-xs font-bold uppercase tracking-widest mb-2 opacity-70">Section</p>
-        <h1 className="text-white font-black text-6xl mb-4">Skills</h1>
+        <h1 className="text-white font-black text-4xl sm:text-5xl lg:text-6xl mb-4 break-words">Skills</h1>
         <p className="text-[#A7A7A7] text-sm">Languages, frameworks, tools, and math</p>
       </div>
 
-      <div className="px-8 py-6">
+      <div className="px-4 sm:px-6 lg:px-8 py-6">
         <SkillChips groups={skillGroups} />
       </div>
     </div>

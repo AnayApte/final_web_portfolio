@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Sidebar from '@/components/layout/Sidebar'
 import TopBar from '@/components/layout/TopBar'
 import StatusBar from '@/components/layout/StatusBar'
-import SidePanel from '@/components/layout/SidePanel'
+import BottomNav from '@/components/layout/BottomNav'
+import AppShell from '@/components/layout/AppShell'
 import { StatusBarProvider } from '@/context/StatusBarContext'
 
 export const metadata: Metadata = {
@@ -21,14 +21,9 @@ export default function RootLayout({
       <body className="bg-[#121212] text-white overflow-hidden h-screen">
         <StatusBarProvider>
           <TopBar />
-          <div className="flex pt-16 pb-[72px] h-screen">
-            <Sidebar />
-            <main className="ml-60 flex-1 overflow-y-auto bg-[#121212]">
-              {children}
-            </main>
-            <SidePanel />
-          </div>
+          <AppShell>{children}</AppShell>
           <StatusBar />
+          <BottomNav />
         </StatusBarProvider>
       </body>
     </html>

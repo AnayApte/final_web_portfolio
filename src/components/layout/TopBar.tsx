@@ -27,8 +27,8 @@ export default function TopBar() {
         </svg>
       </Link>
 
-      {/* Search bar — cosmetic */}
-      <div className="flex-1 max-w-sm">
+      {/* Search bar — cosmetic. Fills available space on mobile; centered in the header on desktop. */}
+      <div className="flex-1 max-w-none lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:w-full lg:max-w-sm">
         <div className="relative">
           <svg
             viewBox="0 0 24 24"
@@ -46,7 +46,7 @@ export default function TopBar() {
         </div>
       </div>
 
-      <div className="flex-1" />
+      <div className="hidden lg:block flex-1" />
 
       {/* Profile avatar */}
       <Link

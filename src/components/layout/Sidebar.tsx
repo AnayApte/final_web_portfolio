@@ -72,7 +72,7 @@ export default function Sidebar() {
   }
 
   return (
-    <aside className="fixed left-0 top-0 bottom-[72px] w-60 bg-[#121212] flex flex-col z-30">
+    <aside className="hidden lg:flex fixed left-0 top-0 bottom-[72px] w-60 bg-[#121212] flex-col z-30">
       {/* Library header */}
       <div className="px-4 pt-6 pb-2">
         <div className="flex items-center gap-3 text-[#A7A7A7] mb-4 px-2">

@@ -6,17 +6,17 @@ export default function ProjectsPage() {
     <div>
       {/* Hero */}
       <div
-        className="px-8 pt-16 pb-8"
+        className="px-4 sm:px-6 lg:px-8 pt-16 pb-8"
         style={{ background: 'linear-gradient(to bottom, #148A08 0%, #121212 100%)' }}
       >
         <p className="text-white text-xs font-bold uppercase tracking-widest mb-2 opacity-70">Section</p>
-        <h1 className="text-white font-black text-6xl mb-4">Projects</h1>
+        <h1 className="text-white font-black text-4xl sm:text-5xl lg:text-6xl mb-4 break-words">Projects</h1>
         <p className="text-[#A7A7A7] text-sm">Personal Projects, Built From Scratch</p>
       </div>
 
       {/* Card grid */}
-      <div className="px-8 py-6">
-        <div className="flex flex-wrap gap-4">
+      <div className="px-4 sm:px-6 lg:px-8 py-6">
+        <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-4">
           {projects.map((entry) => (
             <Card
               key={entry.id}

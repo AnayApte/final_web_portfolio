@@ -13,7 +13,7 @@ export default function Card({ href, title, subtitle, accentColor, label, inProg
   return (
     <Link
       href={href}
-      className="flex-shrink-0 w-44 bg-[#181818] hover:bg-[#282828] rounded-md p-4 transition-colors cursor-pointer group"
+      className="w-full sm:w-44 sm:flex-shrink-0 bg-[#181818] hover:bg-[#282828] rounded-md p-3 sm:p-4 transition-colors cursor-pointer group"
     >
       <div
         className="relative w-full aspect-square rounded-md mb-4 flex items-center justify-center text-3xl"

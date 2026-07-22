@@ -25,7 +25,7 @@ const StatusBarContext = createContext<StatusBarContextType>({
 
 export function StatusBarProvider({ children }: { children: ReactNode }) {
   const [currentItem, setCurrentItem] = useState<StatusItem>(null)
-  const [minimized, setMinimized] = useState(false)
+  const [minimized, setMinimized] = useState(true)
   return (
     <StatusBarContext.Provider value={{ currentItem, setCurrentItem, minimized, setMinimized }}>
       {children}
